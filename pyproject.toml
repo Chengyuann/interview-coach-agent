@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "interview-coach-agent"
+version = "0.1.0"
+description = "Practice spoken interview answers with local transcription, scoring, follow-up questions, and second-attempt comparison."
+requires-python = ">=3.9"
+license = {text = "Apache-2.0"}
+dependencies = [
+  "jsonschema>=4.20,<5",
+  "PyYAML>=6,<7",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<9"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.setuptools.packages.find]
+include = ["vevc*"]

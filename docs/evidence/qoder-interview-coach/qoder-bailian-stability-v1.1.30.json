@@ -1,0 +1,142 @@
+{
+  "schema_version": "0.1.0",
+  "status": "passed",
+  "qodercli_version": "1.1.30",
+  "provider": "Alibaba Cloud Model Studio - China",
+  "model_key": "bailian/qwen3.8-max-pg",
+  "skill": "interview-coach-agent",
+  "credential_source": "external CSV (not bundled)",
+  "secret_persisted": false,
+  "session_persistence": false,
+  "workflow": [
+    "roles",
+    "coach",
+    "report"
+  ],
+  "allowed_write_root": "build/agent-report-evidence",
+  "run_count": 3,
+  "passed_runs": 3,
+  "success_rate": 1.0,
+  "runs": [
+    {
+      "run": 1,
+      "status": "passed",
+      "exit_status": 0,
+      "elapsed_seconds": 27.577506,
+      "checks": {
+        "exit_zero": true,
+        "first_total_4_2": true,
+        "second_total_6_7": true,
+        "delta_2_5": true,
+        "verdict_improved": true,
+        "followup_present": true,
+        "report_path_mentioned": true,
+        "source_tree_unchanged": true,
+        "report_file_created": true,
+        "report_title_present": true,
+        "report_two_attempts_present": true,
+        "report_scores_present": true,
+        "report_boundaries_present": true
+      },
+      "report_artifact": {
+        "path": "build/agent-report-evidence/qoder-run-01.md",
+        "exists": true,
+        "size_bytes": 3193,
+        "sha256": "47062de9c07f2f37e8d3dec1158527f9e509522a66693be5133f6a727b7eee64",
+        "checks": {
+          "report_file_created": true,
+          "report_title_present": true,
+          "report_two_attempts_present": true,
+          "report_scores_present": true,
+          "report_boundaries_present": true
+        }
+      },
+      "source_tree": {
+        "sha256_before": "9f8fec8fd440036f0af241d26db4ab5c5f486770752d59bdcfe589d05c97ed8c",
+        "sha256_after": "9f8fec8fd440036f0af241d26db4ab5c5f486770752d59bdcfe589d05c97ed8c"
+      },
+      "stdout_preview": "All three commands succeeded.\n\n- **First answer total:** 4.2\n- **Second answer total:** 6.7\n- **Total delta:** +2.5\n- **Verdict:** improved\n- **First follow-up question:** 你说效果变好了，具体提升了多少？用一个数字说明。\n- **Report path:** `build/agent-report-evidence/qoder-run-01.md`\n",
+      "stderr_preview": ""
+    },
+    {
+      "run": 2,
+      "status": "passed",
+      "exit_status": 0,
+      "elapsed_seconds": 32.056359,
+      "checks": {
+        "exit_zero": true,
+        "first_total_4_2": true,
+        "second_total_6_7": true,
+        "delta_2_5": true,
+        "verdict_improved": true,
+        "followup_present": true,
+        "report_path_mentioned": true,
+        "source_tree_unchanged": true,
+        "report_file_created": true,
+        "report_title_present": true,
+        "report_two_attempts_present": true,
+        "report_scores_present": true,
+        "report_boundaries_present": true
+      },
+      "report_artifact": {
+        "path": "build/agent-report-evidence/qoder-run-02.md",
+        "exists": true,
+        "size_bytes": 3193,
+        "sha256": "47062de9c07f2f37e8d3dec1158527f9e509522a66693be5133f6a727b7eee64",
+        "checks": {
+          "report_file_created": true,
+          "report_title_present": true,
+          "report_two_attempts_present": true,
+          "report_scores_present": true,
+          "report_boundaries_present": true
+        }
+      },
+      "source_tree": {
+        "sha256_before": "9f8fec8fd440036f0af241d26db4ab5c5f486770752d59bdcfe589d05c97ed8c",
+        "sha256_after": "9f8fec8fd440036f0af241d26db4ab5c5f486770752d59bdcfe589d05c97ed8c"
+      },
+      "stdout_preview": "All three commands succeeded (roles → coach → report); report written and verified.\n\n- First answer total: **4.2**\n- Second answer total: **6.7**\n- Total delta: **+2.5**\n- Verdict: **improved**\n- First follow-up question: 你说效果变好了，具体提升了多少？用一个数字说明。\n- Report path: `build/agent-report-evidence/qoder-run-02.md`\n",
+      "stderr_preview": ""
+    },
+    {
+      "run": 3,
+      "status": "passed",
+      "exit_status": 0,
+      "elapsed_seconds": 25.517747,
+      "checks": {
+        "exit_zero": true,
+        "first_total_4_2": true,
+        "second_total_6_7": true,
+        "delta_2_5": true,
+        "verdict_improved": true,
+        "followup_present": true,
+        "report_path_mentioned": true,
+        "source_tree_unchanged": true,
+        "report_file_created": true,
+        "report_title_present": true,
+        "report_two_attempts_present": true,
+        "report_scores_present": true,
+        "report_boundaries_present": true
+      },
+      "report_artifact": {
+        "path": "build/agent-report-evidence/qoder-run-03.md",
+        "exists": true,
+        "size_bytes": 3193,
+        "sha256": "47062de9c07f2f37e8d3dec1158527f9e509522a66693be5133f6a727b7eee64",
+        "checks": {
+          "report_file_created": true,
+          "report_title_present": true,
+          "report_two_attempts_present": true,
+          "report_scores_present": true,
+          "report_boundaries_present": true
+        }
+      },
+      "source_tree": {
+        "sha256_before": "9f8fec8fd440036f0af241d26db4ab5c5f486770752d59bdcfe589d05c97ed8c",
+        "sha256_after": "9f8fec8fd440036f0af241d26db4ab5c5f486770752d59bdcfe589d05c97ed8c"
+      },
+      "stdout_preview": "All three commands ran successfully.\n\n- First answer total: **4.2**\n- Second answer total: **6.7**\n- Total delta: **+2.5**\n- Verdict: **improved**\n- First follow-up question: \"你说效果变好了，具体提升了多少？用一个数字说明。\"\n- Report path: `build/agent-report-evidence/qoder-run-03.md`\n\nRoles available: product-manager, algorithm-engineer, sales, operations. No source files were edited.\n",
+      "stderr_preview": ""
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": "0.1.0",
+  "cases": [
+    {
+      "case_id": "pm-impact",
+      "role": "product-manager",
+      "question_id": "pm-impact",
+      "first_answer": "我做过一个增长项目，用户转化比较一般，后来做了一些优化，效果明显变好。",
+      "second_answer": "当时新用户注册到首单的转化率只有 18%，目标是在 4 周内提升首单转化。我负责拆解漏斗数据，推动研发上线价格说明和默认优惠选择，并用 A/B 实验验证。结果首单转化率从 18% 提升到 26%，投诉量下降 15%。",
+      "minimum_total_delta": 2.0
+    },
+    {
+      "case_id": "algo-tradeoff",
+      "role": "algorithm-engineer",
+      "question_id": "algo-tradeoff",
+      "first_answer": "我们做过一次模型优化，线上效果不太好。我参与调整了一些参数，后来准确率有提升，延迟也还可以。",
+      "second_answer": "当时推荐模型的线上 P95 延迟是 180 毫秒，目标是在 2 周内降到 120 毫秒以内且准确率下降不超过 1%。我负责分析特征和推理链路，移除低收益特征并完成 INT8 量化实验。结果 P95 延迟降到 105 毫秒，准确率只下降 0.3%，通过评估后上线。",
+      "minimum_total_delta": 1.5
+    },
+    {
+      "case_id": "sales-objection",
+      "role": "sales",
+      "question_id": "sales-objection",
+      "first_answer": "有个客户觉得价格高，我们沟通了几次，介绍了产品优势，最后客户同意合作。",
+      "second_answer": "当时一家年预算 80 万元的客户认为报价高于竞品 15%，目标是在月底前确认决策人和预算边界。我负责梳理客户异议，和技术团队准备 ROI 数据，并向决策人演示分阶段采购方案。结果客户先签下 50 万元合同，并在 3 个月后追加采购 20 万元。",
+      "minimum_total_delta": 1.5
+    },
+    {
+      "case_id": "ops-growth",
+      "role": "operations",
+      "question_id": "ops-growth",
+      "first_answer": "我做过一次用户活动，开始效果一般。后来调整了内容和渠道，活动数据明显变好。",
+      "second_answer": "当时新用户 7 日留存只有 22%，目标是在 6 周内提升到 28%。我负责拆解渠道和内容数据，调整社群触达节奏，并对两版活动内容做实验。结果 7 日留存提升到 31%，单个新增用户成本下降 18%，复盘后方案进入常规运营。",
+      "minimum_total_delta": 1.5
+    },
+    {
+      "case_id": "pm-conflict",
+      "role": "product-manager",
+      "question_id": "pm-conflict",
+      "first_answer": "有一次研发不太认可我的需求，大家讨论了几次，后来还是把功能做上线了。",
+      "second_answer": "当时研发认为优惠推荐功能会增加两周开发量，而业务要求在 30 天后的大促前上线。我负责把需求拆成必须验证的推荐入口和可延后的自动策略，和研发共同评估接口改动，并用 3 天原型实验确认入口点击率。结果核心版本提前 5 天上线，实验组优惠使用率提升 12%，二期自动策略按计划补齐。",
+      "minimum_total_delta": 1.5
+    },
+    {
+      "case_id": "algo-debug",
+      "role": "algorithm-engineer",
+      "question_id": "algo-debug",
+      "first_answer": "模型效果有一次突然下降，我和同事查了一些数据和代码，改完之后效果恢复了。",
+      "second_answer": "当时推荐模型线上点击率在 2 小时内下降 8%，但离线评估正常。我负责对齐线上和离线特征分布，发现一个实时特征的默认值比例从 3% 升到 41%，随后回滚特征服务版本并补充缺失值监控。结果点击率在 40 分钟内恢复，异常特征告警从次日发现缩短到 5 分钟内。",
+      "minimum_total_delta": 1.5
+    },
+    {
+      "case_id": "sales-pipeline",
+      "role": "sales",
+      "question_id": "sales-pipeline",
+      "first_answer": "我之前管理过销售线索，通过多跟进客户和优化话术，最后成交情况比以前好。",
+      "second_answer": "当时团队每月有 320 条线索，但有效商机转化率只有 9%。我负责按行业、预算和决策周期重分线索等级，要求高潜客户 24 小时内首触达，并每周复盘停滞商机。两个月后有效商机转化率提升到 15%，平均首触达时间从 31 小时降到 8 小时，新增成交 6 单。",
+      "minimum_total_delta": 1.5
+    },
+    {
+      "case_id": "ops-crisis",
+      "role": "operations",
+      "question_id": "ops-crisis",
+      "first_answer": "有次线上活动出了问题，用户反馈很多，我协调大家处理，后来舆情慢慢稳定了。",
+      "second_answer": "当时抽奖活动上线 20 分钟后出现重复扣积分，客服收到 186 条投诉。我负责暂停活动入口、按用户影响分组补偿，并每 30 分钟同步处理进度；同时和研发核对扣减日志，确认 742 名用户受影响。3 小时内完成积分回补，24 小时投诉新增量下降 92%，复盘后增加了上线前对账检查。",
+      "minimum_total_delta": 1.5
+    }
+  ]
+}

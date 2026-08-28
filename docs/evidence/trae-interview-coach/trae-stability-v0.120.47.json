@@ -1,0 +1,198 @@
+{
+  "schema_version": "0.1.0",
+  "status": "passed",
+  "traecli_version": "0.120.47",
+  "skill": "interview-coach-agent",
+  "session_reuse": false,
+  "workflow": [
+    "roles",
+    "coach",
+    "report"
+  ],
+  "allowed_write_root": "build/agent-report-evidence",
+  "run_count": 3,
+  "passed_runs": 3,
+  "success_rate": 1.0,
+  "runs": [
+    {
+      "run": 1,
+      "session_id": "e5068870-74e6-4a2b-97c4-54148ea65150",
+      "status": "passed",
+      "exit_status": 0,
+      "elapsed_seconds": 24.561506,
+      "checks": {
+        "exit_zero": true,
+        "skill_invoked": true,
+        "three_bash_calls_succeeded": true,
+        "first_total_4_2": true,
+        "second_total_6_7": true,
+        "delta_2_5": true,
+        "verdict_improved": true,
+        "report_path_mentioned": true,
+        "no_source_file_edits": true,
+        "source_tree_unchanged": true,
+        "report_file_created": true,
+        "report_title_present": true,
+        "report_two_attempts_present": true,
+        "report_scores_present": true,
+        "report_boundaries_present": true
+      },
+      "report_artifact": {
+        "path": "build/agent-report-evidence/trae-run-01.md",
+        "exists": true,
+        "size_bytes": 3193,
+        "sha256": "47062de9c07f2f37e8d3dec1158527f9e509522a66693be5133f6a727b7eee64",
+        "checks": {
+          "report_file_created": true,
+          "report_title_present": true,
+          "report_two_attempts_present": true,
+          "report_scores_present": true,
+          "report_boundaries_present": true
+        }
+      },
+      "source_tree": {
+        "sha256_before": "9f8fec8fd440036f0af241d26db4ab5c5f486770752d59bdcfe589d05c97ed8c",
+        "sha256_after": "9f8fec8fd440036f0af241d26db4ab5c5f486770752d59bdcfe589d05c97ed8c"
+      },
+      "final_message": "Results:\n\n| Metric | Value |\n|---|---|\n| First total | 4.2 |\n| Second total | 6.7 |\n| Total delta | +2.5 |\n| Verdict | improved |\n\nReport written to: `build/agent-report-evidence/trae-run-01.md`",
+      "tool_calls": {
+        "Bash": {
+          "count": 3,
+          "error_count": 0,
+          "duration_ms": 2067
+        },
+        "Read": {
+          "count": 1,
+          "error_count": 0,
+          "duration_ms": 599
+        },
+        "Skill": {
+          "count": 1,
+          "error_count": 0,
+          "duration_ms": 556
+        }
+      },
+      "stderr_preview": ""
+    },
+    {
+      "run": 2,
+      "session_id": "d87aae2d-fd9c-4c8b-8215-85d96406c488",
+      "status": "passed",
+      "exit_status": 0,
+      "elapsed_seconds": 29.33973,
+      "checks": {
+        "exit_zero": true,
+        "skill_invoked": true,
+        "three_bash_calls_succeeded": true,
+        "first_total_4_2": true,
+        "second_total_6_7": true,
+        "delta_2_5": true,
+        "verdict_improved": true,
+        "report_path_mentioned": true,
+        "no_source_file_edits": true,
+        "source_tree_unchanged": true,
+        "report_file_created": true,
+        "report_title_present": true,
+        "report_two_attempts_present": true,
+        "report_scores_present": true,
+        "report_boundaries_present": true
+      },
+      "report_artifact": {
+        "path": "build/agent-report-evidence/trae-run-02.md",
+        "exists": true,
+        "size_bytes": 3193,
+        "sha256": "47062de9c07f2f37e8d3dec1158527f9e509522a66693be5133f6a727b7eee64",
+        "checks": {
+          "report_file_created": true,
+          "report_title_present": true,
+          "report_two_attempts_present": true,
+          "report_scores_present": true,
+          "report_boundaries_present": true
+        }
+      },
+      "source_tree": {
+        "sha256_before": "9f8fec8fd440036f0af241d26db4ab5c5f486770752d59bdcfe589d05c97ed8c",
+        "sha256_after": "9f8fec8fd440036f0af241d26db4ab5c5f486770752d59bdcfe589d05c97ed8c"
+      },
+      "final_message": "Results:\n\n- **First total:** 4.2\n- **Second total:** 6.7\n- **Total delta:** +2.5\n- **Verdict:** improved\n- **Report:** `build/agent-report-evidence/trae-run-02.md`",
+      "tool_calls": {
+        "Bash": {
+          "count": 3,
+          "error_count": 0,
+          "duration_ms": 1946
+        },
+        "Read": {
+          "count": 1,
+          "error_count": 0,
+          "duration_ms": 568
+        },
+        "Skill": {
+          "count": 1,
+          "error_count": 0,
+          "duration_ms": 536
+        }
+      },
+      "stderr_preview": ""
+    },
+    {
+      "run": 3,
+      "session_id": "5526f796-b036-4e0e-9a80-8099707f2f3c",
+      "status": "passed",
+      "exit_status": 0,
+      "elapsed_seconds": 26.995145,
+      "checks": {
+        "exit_zero": true,
+        "skill_invoked": true,
+        "three_bash_calls_succeeded": true,
+        "first_total_4_2": true,
+        "second_total_6_7": true,
+        "delta_2_5": true,
+        "verdict_improved": true,
+        "report_path_mentioned": true,
+        "no_source_file_edits": true,
+        "source_tree_unchanged": true,
+        "report_file_created": true,
+        "report_title_present": true,
+        "report_two_attempts_present": true,
+        "report_scores_present": true,
+        "report_boundaries_present": true
+      },
+      "report_artifact": {
+        "path": "build/agent-report-evidence/trae-run-03.md",
+        "exists": true,
+        "size_bytes": 3193,
+        "sha256": "47062de9c07f2f37e8d3dec1158527f9e509522a66693be5133f6a727b7eee64",
+        "checks": {
+          "report_file_created": true,
+          "report_title_present": true,
+          "report_two_attempts_present": true,
+          "report_scores_present": true,
+          "report_boundaries_present": true
+        }
+      },
+      "source_tree": {
+        "sha256_before": "9f8fec8fd440036f0af241d26db4ab5c5f486770752d59bdcfe589d05c97ed8c",
+        "sha256_after": "9f8fec8fd440036f0af241d26db4ab5c5f486770752d59bdcfe589d05c97ed8c"
+      },
+      "final_message": "All three commands completed. Here's the summary:\n\n| Metric | Value |\n|---|---|\n| First total | 4.2 |\n| Second total | 6.7 |\n| Total delta | +2.5 |\n| Verdict | **improved** |\n| Report | `build/agent-report-evidence/trae-run-03.md` |",
+      "tool_calls": {
+        "Bash": {
+          "count": 3,
+          "error_count": 0,
+          "duration_ms": 2054
+        },
+        "Read": {
+          "count": 1,
+          "error_count": 0,
+          "duration_ms": 531
+        },
+        "Skill": {
+          "count": 1,
+          "error_count": 0,
+          "duration_ms": 553
+        }
+      },
+      "stderr_preview": ""
+    }
+  ]
+}

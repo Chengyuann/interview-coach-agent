@@ -1,0 +1,67 @@
+{
+  "schema_version": "0.1.0",
+  "status": "passed",
+  "workflow": [
+    "roles",
+    "coach",
+    "report"
+  ],
+  "input": "examples/interview-coach/pm-second-answer.json",
+  "expected_result": {
+    "first_total": 4.2,
+    "second_total": 6.7,
+    "total_delta": 2.5,
+    "verdict": "improved"
+  },
+  "report_contract": {
+    "size_bytes": 3193,
+    "sha256": "47062de9c07f2f37e8d3dec1158527f9e509522a66693be5133f6a727b7eee64",
+    "required_sections": [
+      "# 面试练习报告",
+      "## 第一次回答",
+      "## 第二次回答",
+      "## 使用边界"
+    ]
+  },
+  "hosts": [
+    {
+      "host": "Qoder CLI",
+      "version": "1.1.30",
+      "provider": "Alibaba Cloud Model Studio - China",
+      "model_key": "bailian/qwen3.8-max-pg",
+      "session_mode": "no-session-persistence",
+      "run_count": 3,
+      "passed_runs": 3,
+      "evidence": "docs/evidence/qoder-interview-coach/qoder-bailian-stability-v1.1.30.json",
+      "reports": [
+        "build/agent-report-evidence/qoder-run-01.md",
+        "build/agent-report-evidence/qoder-run-02.md",
+        "build/agent-report-evidence/qoder-run-03.md"
+      ]
+    },
+    {
+      "host": "TRAE CLI",
+      "version": "0.120.47",
+      "session_mode": "independent-session-id",
+      "run_count": 3,
+      "passed_runs": 3,
+      "evidence": "docs/evidence/trae-interview-coach/trae-stability-v0.120.47.json",
+      "reports": [
+        "build/agent-report-evidence/trae-run-01.md",
+        "build/agent-report-evidence/trae-run-02.md",
+        "build/agent-report-evidence/trae-run-03.md"
+      ]
+    }
+  ],
+  "aggregate": {
+    "run_count": 6,
+    "passed_runs": 6,
+    "report_files_created": 6,
+    "unique_report_sha256_count": 1,
+    "source_tree_unchanged_runs": 6
+  },
+  "write_boundary": {
+    "allowed_root": "build/agent-report-evidence",
+    "source_file_edits": 0
+  }
+}

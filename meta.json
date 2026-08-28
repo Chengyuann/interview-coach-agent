@@ -1,0 +1,16 @@
+{
+  "display_name": "AI 面试陪练官",
+  "display_description": "本地练习面试回答，获得具体反馈、追问、二答对比和可归档报告",
+  "detail_describe": "面向求职者、转岗员工、导师和企业培训场景：本地转写语音回答，从 STAR 结构、具体程度、数据量化、岗位匹配、表达清晰和真实可信六方面给出反馈；继续追问还没讲清楚的地方，提供不编经历的参考表达，并在第二次回答后生成可归档的练习报告。",
+  "name": "interview-coach-agent",
+  "icon": "demo-web/assets/visuals/interview-coach-hero.jpg",
+  "use_cases": [
+    "用语音或文本练习真实面试回答",
+    "从六方面看回答哪里还没讲清",
+    "生成面试官可能追问的问题",
+    "在第二次回答后展示分数和维度提升",
+    "导出供个人归档或导师复盘的练习报告"
+  ],
+  "author": "Chengyuann",
+  "version": "0.1.0"
+}

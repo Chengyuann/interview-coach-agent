@@ -1,0 +1,4 @@
+
+interview-coach-agent [Enabled]
+  Description: Helps candidates practice spoken interview answers locally. Use for STAR feedback, follow-up questions, safe rewrites, and second-attempt score comparison.
+  Location:    <repository>/.qoder/skills/interview-coach-agent/SKILL.md

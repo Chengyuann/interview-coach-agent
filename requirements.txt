@@ -1,0 +1,13 @@
+# AIPC local Skill runtime
+jsonschema>=4.20,<5
+PyYAML>=6,<7
+moonshine-voice==0.0.73
+onnxruntime>=1.23,<2
+
+# Optional OpenVINO provider and model download helpers
+openvino-genai>=2025.3,<2027
+openvino>=2025.3,<2027
+openvino-tokenizers>=2025.3,<2027
+modelscope>=1.30,<2
+huggingface_hub[cli]>=0.30,<2
+psutil>=7.0,<8

@@ -1,0 +1,663 @@
+{
+  "schema_version": "0.1.0",
+  "status": "passed",
+  "service": "interview-coach-agent",
+  "endpoint": "/v1/interview/coach",
+  "rounds": 5,
+  "scenario_count": 8,
+  "role_count": 4,
+  "question_count": 8,
+  "request_count": 40,
+  "passed_requests": 40,
+  "success_rate": 1.0,
+  "error_count": 0,
+  "server_request_count": 40,
+  "latency_seconds": {
+    "min": 0.001429,
+    "median": 0.001739,
+    "mean": 0.002757,
+    "max": 0.033062
+  },
+  "records": [
+    {
+      "round": 1,
+      "case_id": "pm-impact",
+      "role": "product-manager",
+      "status": "passed",
+      "latency_seconds": 0.033062,
+      "first_total": 3.2,
+      "second_total": 6.7,
+      "total_delta": 3.5,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 1,
+      "case_id": "algo-tradeoff",
+      "role": "algorithm-engineer",
+      "status": "passed",
+      "latency_seconds": 0.002171,
+      "first_total": 4.0,
+      "second_total": 6.7,
+      "total_delta": 2.7,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 1,
+      "case_id": "sales-objection",
+      "role": "sales",
+      "status": "passed",
+      "latency_seconds": 0.00218,
+      "first_total": 3.3,
+      "second_total": 6.5,
+      "total_delta": 3.2,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 1,
+      "case_id": "ops-growth",
+      "role": "operations",
+      "status": "passed",
+      "latency_seconds": 0.002143,
+      "first_total": 3.8,
+      "second_total": 6.7,
+      "total_delta": 2.9,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 1,
+      "case_id": "pm-conflict",
+      "role": "product-manager",
+      "status": "passed",
+      "latency_seconds": 0.006085,
+      "first_total": 4.0,
+      "second_total": 6.3,
+      "total_delta": 2.3,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 1,
+      "case_id": "algo-debug",
+      "role": "algorithm-engineer",
+      "status": "passed",
+      "latency_seconds": 0.005148,
+      "first_total": 3.7,
+      "second_total": 6.3,
+      "total_delta": 2.6,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 1,
+      "case_id": "sales-pipeline",
+      "role": "sales",
+      "status": "passed",
+      "latency_seconds": 0.001624,
+      "first_total": 4.2,
+      "second_total": 6.5,
+      "total_delta": 2.3,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 1,
+      "case_id": "ops-crisis",
+      "role": "operations",
+      "status": "passed",
+      "latency_seconds": 0.001499,
+      "first_total": 3.7,
+      "second_total": 6.3,
+      "total_delta": 2.6,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 2,
+      "case_id": "pm-impact",
+      "role": "product-manager",
+      "status": "passed",
+      "latency_seconds": 0.001429,
+      "first_total": 3.2,
+      "second_total": 6.7,
+      "total_delta": 3.5,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 2,
+      "case_id": "algo-tradeoff",
+      "role": "algorithm-engineer",
+      "status": "passed",
+      "latency_seconds": 0.001685,
+      "first_total": 4.0,
+      "second_total": 6.7,
+      "total_delta": 2.7,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 2,
+      "case_id": "sales-objection",
+      "role": "sales",
+      "status": "passed",
+      "latency_seconds": 0.001996,
+      "first_total": 3.3,
+      "second_total": 6.5,
+      "total_delta": 3.2,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 2,
+      "case_id": "ops-growth",
+      "role": "operations",
+      "status": "passed",
+      "latency_seconds": 0.001839,
+      "first_total": 3.8,
+      "second_total": 6.7,
+      "total_delta": 2.9,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 2,
+      "case_id": "pm-conflict",
+      "role": "product-manager",
+      "status": "passed",
+      "latency_seconds": 0.001865,
+      "first_total": 4.0,
+      "second_total": 6.3,
+      "total_delta": 2.3,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 2,
+      "case_id": "algo-debug",
+      "role": "algorithm-engineer",
+      "status": "passed",
+      "latency_seconds": 0.001738,
+      "first_total": 3.7,
+      "second_total": 6.3,
+      "total_delta": 2.6,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 2,
+      "case_id": "sales-pipeline",
+      "role": "sales",
+      "status": "passed",
+      "latency_seconds": 0.001762,
+      "first_total": 4.2,
+      "second_total": 6.5,
+      "total_delta": 2.3,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 2,
+      "case_id": "ops-crisis",
+      "role": "operations",
+      "status": "passed",
+      "latency_seconds": 0.001825,
+      "first_total": 3.7,
+      "second_total": 6.3,
+      "total_delta": 2.6,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 3,
+      "case_id": "pm-impact",
+      "role": "product-manager",
+      "status": "passed",
+      "latency_seconds": 0.001978,
+      "first_total": 3.2,
+      "second_total": 6.7,
+      "total_delta": 3.5,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 3,
+      "case_id": "algo-tradeoff",
+      "role": "algorithm-engineer",
+      "status": "passed",
+      "latency_seconds": 0.002193,
+      "first_total": 4.0,
+      "second_total": 6.7,
+      "total_delta": 2.7,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 3,
+      "case_id": "sales-objection",
+      "role": "sales",
+      "status": "passed",
+      "latency_seconds": 0.00181,
+      "first_total": 3.3,
+      "second_total": 6.5,
+      "total_delta": 3.2,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 3,
+      "case_id": "ops-growth",
+      "role": "operations",
+      "status": "passed",
+      "latency_seconds": 0.002104,
+      "first_total": 3.8,
+      "second_total": 6.7,
+      "total_delta": 2.9,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 3,
+      "case_id": "pm-conflict",
+      "role": "product-manager",
+      "status": "passed",
+      "latency_seconds": 0.001531,
+      "first_total": 4.0,
+      "second_total": 6.3,
+      "total_delta": 2.3,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 3,
+      "case_id": "algo-debug",
+      "role": "algorithm-engineer",
+      "status": "passed",
+      "latency_seconds": 0.002594,
+      "first_total": 3.7,
+      "second_total": 6.3,
+      "total_delta": 2.6,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 3,
+      "case_id": "sales-pipeline",
+      "role": "sales",
+      "status": "passed",
+      "latency_seconds": 0.00187,
+      "first_total": 4.2,
+      "second_total": 6.5,
+      "total_delta": 2.3,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 3,
+      "case_id": "ops-crisis",
+      "role": "operations",
+      "status": "passed",
+      "latency_seconds": 0.001734,
+      "first_total": 3.7,
+      "second_total": 6.3,
+      "total_delta": 2.6,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 4,
+      "case_id": "pm-impact",
+      "role": "product-manager",
+      "status": "passed",
+      "latency_seconds": 0.001696,
+      "first_total": 3.2,
+      "second_total": 6.7,
+      "total_delta": 3.5,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 4,
+      "case_id": "algo-tradeoff",
+      "role": "algorithm-engineer",
+      "status": "passed",
+      "latency_seconds": 0.001561,
+      "first_total": 4.0,
+      "second_total": 6.7,
+      "total_delta": 2.7,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 4,
+      "case_id": "sales-objection",
+      "role": "sales",
+      "status": "passed",
+      "latency_seconds": 0.001543,
+      "first_total": 3.3,
+      "second_total": 6.5,
+      "total_delta": 3.2,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 4,
+      "case_id": "ops-growth",
+      "role": "operations",
+      "status": "passed",
+      "latency_seconds": 0.001575,
+      "first_total": 3.8,
+      "second_total": 6.7,
+      "total_delta": 2.9,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 4,
+      "case_id": "pm-conflict",
+      "role": "product-manager",
+      "status": "passed",
+      "latency_seconds": 0.001444,
+      "first_total": 4.0,
+      "second_total": 6.3,
+      "total_delta": 2.3,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 4,
+      "case_id": "algo-debug",
+      "role": "algorithm-engineer",
+      "status": "passed",
+      "latency_seconds": 0.001528,
+      "first_total": 3.7,
+      "second_total": 6.3,
+      "total_delta": 2.6,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 4,
+      "case_id": "sales-pipeline",
+      "role": "sales",
+      "status": "passed",
+      "latency_seconds": 0.001602,
+      "first_total": 4.2,
+      "second_total": 6.5,
+      "total_delta": 2.3,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 4,
+      "case_id": "ops-crisis",
+      "role": "operations",
+      "status": "passed",
+      "latency_seconds": 0.00162,
+      "first_total": 3.7,
+      "second_total": 6.3,
+      "total_delta": 2.6,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 5,
+      "case_id": "pm-impact",
+      "role": "product-manager",
+      "status": "passed",
+      "latency_seconds": 0.00168,
+      "first_total": 3.2,
+      "second_total": 6.7,
+      "total_delta": 3.5,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 5,
+      "case_id": "algo-tradeoff",
+      "role": "algorithm-engineer",
+      "status": "passed",
+      "latency_seconds": 0.001724,
+      "first_total": 4.0,
+      "second_total": 6.7,
+      "total_delta": 2.7,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 5,
+      "case_id": "sales-objection",
+      "role": "sales",
+      "status": "passed",
+      "latency_seconds": 0.00151,
+      "first_total": 3.3,
+      "second_total": 6.5,
+      "total_delta": 3.2,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 5,
+      "case_id": "ops-growth",
+      "role": "operations",
+      "status": "passed",
+      "latency_seconds": 0.001652,
+      "first_total": 3.8,
+      "second_total": 6.7,
+      "total_delta": 2.9,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 5,
+      "case_id": "pm-conflict",
+      "role": "product-manager",
+      "status": "passed",
+      "latency_seconds": 0.00174,
+      "first_total": 4.0,
+      "second_total": 6.3,
+      "total_delta": 2.3,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 5,
+      "case_id": "algo-debug",
+      "role": "algorithm-engineer",
+      "status": "passed",
+      "latency_seconds": 0.001712,
+      "first_total": 3.7,
+      "second_total": 6.3,
+      "total_delta": 2.6,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 5,
+      "case_id": "sales-pipeline",
+      "role": "sales",
+      "status": "passed",
+      "latency_seconds": 0.002002,
+      "first_total": 4.2,
+      "second_total": 6.5,
+      "total_delta": 2.3,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    },
+    {
+      "round": 5,
+      "case_id": "ops-crisis",
+      "role": "operations",
+      "status": "passed",
+      "latency_seconds": 0.001808,
+      "first_total": 3.7,
+      "second_total": 6.3,
+      "total_delta": 2.6,
+      "checks": {
+        "ok": true,
+        "verdict_improved": true,
+        "minimum_delta": true,
+        "no_regressed_dimensions": true
+      }
+    }
+  ]
+}

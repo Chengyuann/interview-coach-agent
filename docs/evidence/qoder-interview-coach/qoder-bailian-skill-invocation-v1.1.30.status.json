@@ -1,0 +1,20 @@
+{
+  "schema_version": "0.1.0",
+  "status": "passed",
+  "qodercli_version": "1.1.30",
+  "provider": "Alibaba Cloud Model Studio - China",
+  "provider_key": "bailian",
+  "model": "qwen3.8-max-pg",
+  "model_key": "bailian/qwen3.8-max-pg",
+  "credential_source": "external CSV (not bundled)",
+  "secret_persisted": false,
+  "command_exit_status": 0,
+  "elapsed_seconds": 43.829617,
+  "skill": "interview-coach-agent",
+  "commands_requested": [
+    "python3 scripts/interview.py roles",
+    "python3 scripts/interview.py coach --input examples/interview-coach/pm-second-answer.json"
+  ],
+  "stdout_preview": "Both commands ran successfully via the interview-coach-agent skill (no files edited).\n\n**Command 1 — `python3 scripts/interview.py roles`:** Returned 4 roles (product-manager, algorithm-engineer, sales, operations) with role-specific questions.\n\n**Command 2 — `python3 scripts/interview.py coach --input examples/interview-coach/pm-second-answer.json`:**\n\n| Metric | Value |\n| --- | --- |\n| First answer total | **4.2** (structure 6, specificity 4, metrics 1, role_fit 5, clarity 4, risk_control 5) |\n| Second answer total | **6.7** (all dimensions 6–7) |\n| Total delta | **+2.5** |\n| Verdict | **improved** (all 6 dimensions improved, 0 regressed) |\n\n**First follow-up question** (first answer): 「你说效果变好了，具体提升了多少？用一个数字说明。」\n\nFirst answer issues flagged: STAR_INCOMPLETE (missing result), NO_METRIC, VAGUE_LANGUAGE (一些、比较、明显). Second answer added 5 concrete metrics (18%→26% conversion, -15% complaints) with full STAR coverage, clearing all issues.\n",
+  "stderr_preview": ""
+}

@@ -1,0 +1,15 @@
+**Commands:**
+```
+python3 scripts/interview.py roles
+python3 scripts/interview.py coach --input examples/interview-coach/pm-second-answer.json
+```
+
+**Pass/Fail:** PASS
+
+**First score:** 4.2
+
+**Second score:** 6.7
+
+**Total delta:** +2.5
+
+**Follow-up question:** 如果面试官继续追问，你会如何证明这个结果主要由你的动作带来？

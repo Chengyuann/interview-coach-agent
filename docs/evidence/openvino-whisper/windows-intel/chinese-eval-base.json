@@ -1,0 +1,133 @@
+{
+  "schema_version": "0.1.0",
+  "status": "passed",
+  "dataset": {
+    "name": "incident-cache-regression-tts",
+    "type": "synthetic_development_fixture",
+    "segment_count": 6,
+    "warning": "Synthetic TTS development data; not a real-user accuracy benchmark."
+  },
+  "character_error_rate": 0.311321,
+  "total_reference_characters": 106,
+  "total_edit_distance": 33,
+  "technical_term_recall": 0.307692,
+  "recognized_terms": 4,
+  "reference_terms": 13,
+  "terms": [
+    {
+      "term": "回滚",
+      "reference_present": true,
+      "recognized": false
+    },
+    {
+      "term": "版本",
+      "reference_present": true,
+      "recognized": true
+    },
+    {
+      "term": "缓存",
+      "reference_present": true,
+      "recognized": false
+    },
+    {
+      "term": "命中率",
+      "reference_present": true,
+      "recognized": false
+    },
+    {
+      "term": "限流",
+      "reference_present": true,
+      "recognized": false
+    },
+    {
+      "term": "开关",
+      "reference_present": true,
+      "recognized": false
+    },
+    {
+      "term": "支付",
+      "reference_present": true,
+      "recognized": true
+    },
+    {
+      "term": "客户端",
+      "reference_present": true,
+      "recognized": false
+    },
+    {
+      "term": "重试",
+      "reference_present": true,
+      "recognized": false
+    },
+    {
+      "term": "日志",
+      "reference_present": true,
+      "recognized": false
+    },
+    {
+      "term": "只读",
+      "reference_present": true,
+      "recognized": false
+    },
+    {
+      "term": "搜索",
+      "reference_present": true,
+      "recognized": true
+    },
+    {
+      "term": "超时",
+      "reference_present": true,
+      "recognized": true
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "S0001",
+      "reference": "先回滚一点八点二版本",
+      "hypothesis": "先回滾182版本",
+      "reference_chars": 10,
+      "edit_distance": 6,
+      "cer": 0.6
+    },
+    {
+      "segment_id": "S0002",
+      "reference": "等一下不是版本问题先看缓存命中率",
+      "hypothesis": "等一下不是版本問題先看緩存命重率",
+      "reference_chars": 16,
+      "edit_distance": 4,
+      "cer": 0.25
+    },
+    {
+      "segment_id": "S0003",
+      "reference": "小王今天把服务限流功能补上不今天先只做限流开关",
+      "hypothesis": "小王今天把服务線流功能補上不今天先知作線流開關",
+      "reference_chars": 23,
+      "edit_distance": 7,
+      "cer": 0.304348
+    },
+    {
+      "segment_id": "S0004",
+      "reference": "正式限流还是小王下周补",
+      "hypothesis": "正式現流還是小王下周捕",
+      "reference_chars": 11,
+      "edit_distance": 3,
+      "cer": 0.272727
+    },
+    {
+      "segment_id": "S0005",
+      "reference": "错误可能在支付客户端文件的重试配置先别改确认日志",
+      "hypothesis": "錯誤可能在支付客戶端文件的重視配置先別改確認日子",
+      "reference_chars": 24,
+      "edit_distance": 8,
+      "cer": 0.333333
+    },
+    {
+      "segment_id": "S0006",
+      "reference": "这是只读操作先执行只读搜索命令查找超时和重试",
+      "hypothesis": "这式指读操作先指行指读搜索命令查找超时和重视",
+      "reference_chars": 22,
+      "edit_distance": 5,
+      "cer": 0.227273
+    }
+  ]
+}

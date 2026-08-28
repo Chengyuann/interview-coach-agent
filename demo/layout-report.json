@@ -1,0 +1,276 @@
+{
+  "desktop": {
+    "viewport": {
+      "width": 1600,
+      "height": 900
+    },
+    "body": {
+      "scrollWidth": 1600,
+      "scrollHeight": 900
+    },
+    "overflow": [
+      {
+        "tag": "a",
+        "id": "",
+        "className": "skip-link",
+        "left": 18,
+        "right": 126,
+        "top": -60,
+        "bottom": -16
+      }
+    ],
+    "font": "\"Smiley Sans\", \"Noto Sans SC\", \"PingFang SC\", sans-serif",
+    "title": "算法工程师练习 · 面试陪练"
+  },
+  "finalScore": "6.7",
+  "finalSummary": "这次更有说服力",
+  "reportButtonVisible": true,
+  "mobile": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "body": {
+      "scrollWidth": 390,
+      "scrollHeight": 1159
+    },
+    "overflow": [
+      {
+        "tag": "a",
+        "id": "",
+        "className": "skip-link",
+        "left": 18,
+        "right": 126,
+        "top": -60,
+        "bottom": -16
+      },
+      {
+        "tag": "div",
+        "id": "",
+        "className": "app-shell",
+        "left": 0,
+        "right": 390,
+        "top": 0,
+        "bottom": 1159
+      },
+      {
+        "tag": "main",
+        "id": "practice",
+        "className": "practice-shell",
+        "left": 12,
+        "right": 378,
+        "top": 62,
+        "bottom": 1111
+      },
+      {
+        "tag": "section",
+        "id": "",
+        "className": "practice-panel spotlight-panel",
+        "left": 13,
+        "right": 377,
+        "top": 363,
+        "bottom": 1110
+      },
+      {
+        "tag": "div",
+        "id": "",
+        "className": "answer-block",
+        "left": 31,
+        "right": 359,
+        "top": 607,
+        "bottom": 905
+      },
+      {
+        "tag": "div",
+        "id": "",
+        "className": "answer-actions",
+        "left": 31,
+        "right": 359,
+        "top": 809,
+        "bottom": 905
+      },
+      {
+        "tag": "div",
+        "id": "",
+        "className": "",
+        "left": 31,
+        "right": 359,
+        "top": 809,
+        "bottom": 849
+      },
+      {
+        "tag": "button",
+        "id": "upload-audio",
+        "className": "text-button",
+        "left": 31,
+        "right": 117,
+        "top": 809,
+        "bottom": 849
+      },
+      {
+        "tag": "button",
+        "id": "load-example",
+        "className": "text-button",
+        "left": 273,
+        "right": 359,
+        "top": 809,
+        "bottom": 849
+      },
+      {
+        "tag": "button",
+        "id": "analyze-answer",
+        "className": "primary-button",
+        "left": 31,
+        "right": 359,
+        "top": 865,
+        "bottom": 905
+      },
+      {
+        "tag": "span",
+        "id": "",
+        "className": "",
+        "left": 158,
+        "right": 206,
+        "top": 876,
+        "bottom": 893
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "className": "[object SVGAnimatedString]",
+        "left": 214,
+        "right": 232,
+        "top": 876,
+        "bottom": 894
+      },
+      {
+        "tag": "path",
+        "id": "",
+        "className": "[object SVGAnimatedString]",
+        "left": 223,
+        "right": 228,
+        "top": 879,
+        "bottom": 890
+      },
+      {
+        "tag": "section",
+        "id": "result-panel",
+        "className": "result-panel is-empty",
+        "left": 31,
+        "right": 359,
+        "top": 921,
+        "bottom": 1080
+      },
+      {
+        "tag": "div",
+        "id": "",
+        "className": "empty-result",
+        "left": 31,
+        "right": 359,
+        "top": 922,
+        "bottom": 1080
+      },
+      {
+        "tag": "span",
+        "id": "",
+        "className": "empty-icon",
+        "left": 31,
+        "right": 73,
+        "top": 980,
+        "bottom": 1022
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "className": "[object SVGAnimatedString]",
+        "left": 43,
+        "right": 61,
+        "top": 992,
+        "bottom": 1010
+      },
+      {
+        "tag": "path",
+        "id": "",
+        "className": "[object SVGAnimatedString]",
+        "left": 45,
+        "right": 60,
+        "top": 993,
+        "bottom": 1008
+      },
+      {
+        "tag": "div",
+        "id": "",
+        "className": "",
+        "left": 87,
+        "right": 243,
+        "top": 980,
+        "bottom": 1021
+      },
+      {
+        "tag": "strong",
+        "id": "",
+        "className": "",
+        "left": 87,
+        "right": 243,
+        "top": 980,
+        "bottom": 1000
+      },
+      {
+        "tag": "p",
+        "id": "",
+        "className": "",
+        "left": 87,
+        "right": 243,
+        "top": 1004,
+        "bottom": 1021
+      },
+      {
+        "tag": "footer",
+        "id": "",
+        "className": "privacy-note",
+        "left": 12,
+        "right": 378,
+        "top": 1111,
+        "bottom": 1145
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "className": "[object SVGAnimatedString]",
+        "left": 237,
+        "right": 251,
+        "top": 1121,
+        "bottom": 1135
+      },
+      {
+        "tag": "path",
+        "id": "",
+        "className": "[object SVGAnimatedString]",
+        "left": 242,
+        "right": 246,
+        "top": 1125,
+        "bottom": 1128
+      },
+      {
+        "tag": "rect",
+        "id": "",
+        "className": "[object SVGAnimatedString]",
+        "left": 239,
+        "right": 249,
+        "top": 1123,
+        "bottom": 1130
+      },
+      {
+        "tag": "span",
+        "id": "",
+        "className": "",
+        "left": 258,
+        "right": 378,
+        "top": 1120,
+        "bottom": 1135
+      }
+    ],
+    "font": "\"Smiley Sans\", \"Noto Sans SC\", \"PingFang SC\", sans-serif",
+    "title": "产品经理练习 · 面试陪练"
+  }
+}

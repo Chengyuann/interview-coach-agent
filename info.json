@@ -1,0 +1,21 @@
+{
+  "venv_name": "moonshine",
+  "python_version": "3.11",
+  "mem_need_gb": 1.0,
+  "server_alive_timeout": 60,
+  "models": [
+    {
+      "model_id": "moonshine-ai/base-zh-quantized",
+      "revision": "moonshine-voice-0.0.73",
+      "dir_name": "moonshine/base-zh/quantized/base-zh",
+      "required_files": [
+        "encoder_model.ort",
+        "decoder_model_merged.ort",
+        "tokenizer.bin"
+      ],
+      "runtime": "moonshine-voice==0.0.73",
+      "size_bytes": 141001310,
+      "phase": "default"
+    }
+  ]
+}

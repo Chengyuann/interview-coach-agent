@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="面试陪练：选择岗位，回答一道真实问题，马上获得具体改进建议。"
+    />
+    <meta name="theme-color" content="#f2eee7" />
+    <title>面试陪练</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/app/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#practice">跳到练习区</a>
+
+    <div class="page-grain" aria-hidden="true"></div>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="面试陪练首页">
+          <span class="brand-mark" aria-hidden="true">答</span>
+          <span>
+            <strong>面试陪练</strong>
+            <small>把经历讲清楚</small>
+          </span>
+        </a>
+
+        <div class="session-state" id="service-state">
+          <span class="state-dot"></span>
+          <span id="service-label">正在连接</span>
+        </div>
+      </header>
+
+      <main class="practice-shell" id="practice">
+        <section
+          class="interviewer-stage"
+          id="interviewer-stage"
+          aria-labelledby="interviewer-name"
+        >
+          <img
+            class="interviewer-image"
+            src="/app/assets/visuals/interview-coach-hero.jpg"
+            alt="一位面试官坐在现代办公室中，准备开始模拟面试"
+          />
+          <div class="stage-shade" aria-hidden="true"></div>
+          <div class="stage-grid" aria-hidden="true"></div>
+
+          <div class="stage-topline">
+            <span id="stage-role">产品经理面试</span>
+            <span>模拟练习</span>
+          </div>
+
+          <div class="interviewer-prompt">
+            <div class="listening-mark" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <p id="stage-question">讲一个你推动产品指标提升的项目。</p>
+          </div>
+
+          <div class="interviewer-meta">
+            <div class="avatar" aria-hidden="true">林</div>
+            <div>
+              <strong id="interviewer-name">林然</strong>
+              <span>模拟面试官</span>
+            </div>
+            <button class="sound-button" id="read-question" type="button">
+              <i data-lucide="volume-2"></i>
+              <span>听问题</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="practice-panel spotlight-panel" aria-label="面试练习工作区">
+          <div class="progress-line" aria-label="练习进度">
+            <div class="progress-step is-active" data-progress="answer">
+              <span>1</span><strong>回答</strong>
+            </div>
+            <div class="progress-track"><i></i></div>
+            <div class="progress-step" data-progress="feedback">
+              <span>2</span><strong>建议</strong>
+            </div>
+            <div class="progress-track"><i></i></div>
+            <div class="progress-step" data-progress="retry">
+              <span>3</span><strong>再答</strong>
+            </div>
+          </div>
+
+          <div class="practice-head">
+            <div>
+              <span class="eyebrow">当前问题</span>
+              <h1 id="question">讲一个你推动产品指标提升的项目。</h1>
+            </div>
+            <button class="icon-button" id="next-question" type="button" title="换一道题">
+              <i data-lucide="refresh-cw"></i>
+            </button>
+          </div>
+
+          <div class="role-switcher" aria-label="选择岗位">
+            <button class="role-button is-active" type="button" data-role="product-manager">
+              <i data-lucide="layout-dashboard"></i><span>产品</span>
+            </button>
+            <button class="role-button" type="button" data-role="algorithm-engineer">
+              <i data-lucide="braces"></i><span>算法</span>
+            </button>
+            <button class="role-button" type="button" data-role="sales">
+              <i data-lucide="handshake"></i><span>销售</span>
+            </button>
+            <button class="role-button" type="button" data-role="operations">
+              <i data-lucide="megaphone"></i><span>运营</span>
+            </button>
+          </div>
+
+          <div class="answer-block">
+            <div class="answer-label">
+              <label for="answer">你的回答</label>
+              <span id="answer-count">0 / 500</span>
+            </div>
+            <textarea
+              id="answer"
+              maxlength="500"
+              placeholder="像面对真实面试官一样回答。重点说清楚：背景、你做了什么、结果如何。"
+            ></textarea>
+            <div class="answer-actions">
+              <div>
+                <input id="audio-input" type="file" accept=".wav,audio/wav" hidden />
+                <button class="text-button" id="upload-audio" type="button">
+                  <i data-lucide="mic"></i>
+                  导入语音
+                </button>
+                <button class="text-button" id="load-example" type="button">
+                  <i data-lucide="wand-sparkles"></i>
+                  载入示例
+                </button>
+              </div>
+              <button class="primary-button" id="analyze-answer" type="button">
+                <span>获得建议</span>
+                <i data-lucide="arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <section class="result-panel is-empty" id="result-panel" aria-live="polite">
+            <div class="empty-result">
+              <span class="empty-icon"><i data-lucide="message-circle-more"></i></span>
+              <div>
+                <strong>说完就能改</strong>
+                <p>我们只给最值得先改的三点。</p>
+              </div>
+            </div>
+          </section>
+        </section>
+      </main>
+
+      <footer class="privacy-note">
+        <i data-lucide="laptop-minimal-check"></i>
+        <span>本地处理，不替你编造经历</span>
+      </footer>
+    </div>
+
+    <dialog class="detail-dialog" id="detail-dialog">
+      <div class="dialog-head">
+        <div>
+          <span class="eyebrow">完整建议</span>
+          <h2>这段回答还可以这样改</h2>
+        </div>
+        <button class="icon-button" id="close-detail" type="button" title="关闭">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="score-grid" id="score-grid"></div>
+      <div class="rewrite-block">
+        <span>建议结构</span>
+        <p id="rewrite-text"></p>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status"></div>
+
+    <script src="/app/vendor/lucide.min.js"></script>
+    <script src="/app/app.js"></script>
+  </body>
+</html>

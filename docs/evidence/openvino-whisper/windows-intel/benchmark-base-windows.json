@@ -1,0 +1,76 @@
+{
+  "host": {
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "system": "Windows"
+  },
+  "load_seconds": 0.585507,
+  "model": {
+    "device": "CPU",
+    "id": "whisper-base-int8-ov",
+    "path": "C:\\Users\\15526\\VEVC-OpenVINO\\run\\models\\openvino\\whisper-base-int8-ov"
+  },
+  "process_memory": {
+    "peak_working_set_bytes": 398721024,
+    "private_bytes": 818765824,
+    "rss_bytes": 390979584
+  },
+  "provider": "openvino-genai-whisper",
+  "runtime": {
+    "openvino": "2026.3.0-22451-8a17657b995-releases/2026/3",
+    "openvino_genai": "2026.3.0.0",
+    "openvino_tokenizers": "2026.3.0.0",
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "python_executable": "C:\\Users\\15526\\VEVC-OpenVINO\\venv-clean\\Scripts\\python.exe"
+  },
+  "schema_version": "0.1.0",
+  "segment_count": 6,
+  "segments": [
+    {
+      "duration_ms": 2394,
+      "inference_seconds": 0.233322,
+      "real_time_factor": 0.097461,
+      "segment_id": "S0001",
+      "text": "先回滾1.8.2版本。"
+    },
+    {
+      "duration_ms": 4289,
+      "inference_seconds": 0.215273,
+      "real_time_factor": 0.050192,
+      "segment_id": "S0002",
+      "text": "等一下,不是版本問題,先看緩存命重率。"
+    },
+    {
+      "duration_ms": 6086,
+      "inference_seconds": 0.242459,
+      "real_time_factor": 0.039839,
+      "segment_id": "S0003",
+      "text": "小王今天把服务線流功能補上,不,今天先知作線流開關。"
+    },
+    {
+      "duration_ms": 2553,
+      "inference_seconds": 0.195874,
+      "real_time_factor": 0.076723,
+      "segment_id": "S0004",
+      "text": "正式現流還是小王下周捕"
+    },
+    {
+      "duration_ms": 5964,
+      "inference_seconds": 0.263301,
+      "real_time_factor": 0.044148,
+      "segment_id": "S0005",
+      "text": "錯誤可能在支付客戶端文件的重視配置,先別改,確認日子。"
+    },
+    {
+      "duration_ms": 5769,
+      "inference_seconds": 0.25925,
+      "real_time_factor": 0.044938,
+      "segment_id": "S0006",
+      "text": "这式指读操作,先指行指读搜索命令,查找超时和重视。"
+    }
+  ],
+  "status": "passed",
+  "total_audio_ms": 27055,
+  "total_inference_seconds": 1.409479,
+  "total_real_time_factor": 0.052097
+}

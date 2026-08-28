@@ -1,0 +1,158 @@
+{
+  "schema_version": "0.1.0",
+  "product": "interview-coach-agent",
+  "artifacts": [
+    {
+      "name": "release_archive",
+      "path": "dist/interview-coach-agent-0.1.0.zip"
+    },
+    {
+      "name": "release_audit",
+      "path": "build/interview-coach-release-audit.json"
+    },
+    {
+      "name": "submission_manifest",
+      "path": "build/interview-coach-submission-manifest.json"
+    },
+    {
+      "name": "one_command_offline_verification",
+      "path": "build/interview-submission-verification.json"
+    },
+    {
+      "name": "aipc_local_skill_standard_mapping",
+      "path": "references/aipc-local-skill-standard.md"
+    },
+    {
+      "name": "cross_role_evaluation",
+      "path": "build/interview-coach-evaluation.json"
+    },
+    {
+      "name": "local_audio_smoke",
+      "path": "build/interview-audio-smoke/summary.json"
+    },
+    {
+      "name": "http_audio_smoke",
+      "path": "build/interview-http-audio-smoke.json"
+    },
+    {
+      "name": "localhost_coach_stability",
+      "path": "docs/evidence/interview-service/stability-40.json"
+    },
+    {
+      "name": "openvino_current_product_cli",
+      "path": "docs/evidence/interview-openvino-current-product-cli.json"
+    },
+    {
+      "name": "openvino_current_product_service",
+      "path": "docs/evidence/interview-openvino-current-product-service.json"
+    },
+    {
+      "name": "openvino_intel_cpu_timing",
+      "path": "docs/evidence/openvino-whisper/windows-intel/benchmark-base-windows.json"
+    },
+    {
+      "name": "openvino_intel_incident_stress_accuracy",
+      "path": "docs/evidence/openvino-whisper/windows-intel/chinese-eval-base.json"
+    },
+    {
+      "name": "gpt55_ai_simulated_candidates",
+      "path": "docs/evidence/interview-simulated-users/gpt55-simulated-users.json"
+    },
+    {
+      "name": "voxcpm2_voice_smoke",
+      "path": "docs/evidence/interview-simulated-users/tts-smoke/summary.json"
+    },
+    {
+      "name": "interview_practice_report_sample",
+      "path": "examples/interview-coach/pm-practice-report.md"
+    },
+    {
+      "name": "interview_practice_report_capture",
+      "path": "docs/submission-assets/article/08-report-download.png"
+    },
+    {
+      "name": "demo_video",
+      "path": "output/interview-coach-redesign/interview-coach-demo-v2.mp4"
+    },
+    {
+      "name": "demo_video_qa",
+      "path": "output/interview-coach-redesign/qa/render-report.json"
+    },
+    {
+      "name": "trae_skill_invocation",
+      "path": "docs/evidence/trae-interview-coach/trae-cli-smoke.txt"
+    },
+    {
+      "name": "trae_skill_stability",
+      "path": "docs/evidence/trae-interview-coach/trae-stability-v0.120.47.json"
+    },
+    {
+      "name": "agent_generated_report_summary",
+      "path": "docs/evidence/agent-report-evidence/summary.json"
+    },
+    {
+      "name": "agent_generated_report_readme",
+      "path": "docs/evidence/agent-report-evidence/README.md"
+    },
+    {
+      "name": "qoder_generated_report_1",
+      "path": "build/agent-report-evidence/qoder-run-01.md"
+    },
+    {
+      "name": "qoder_generated_report_2",
+      "path": "build/agent-report-evidence/qoder-run-02.md"
+    },
+    {
+      "name": "qoder_generated_report_3",
+      "path": "build/agent-report-evidence/qoder-run-03.md"
+    },
+    {
+      "name": "trae_generated_report_1",
+      "path": "build/agent-report-evidence/trae-run-01.md"
+    },
+    {
+      "name": "trae_generated_report_2",
+      "path": "build/agent-report-evidence/trae-run-02.md"
+    },
+    {
+      "name": "trae_generated_report_3",
+      "path": "build/agent-report-evidence/trae-run-03.md"
+    },
+    {
+      "name": "qoder_skill_discovery",
+      "path": "docs/evidence/qoder-interview-coach/qoder-skill-discovery-v1.1.30.txt"
+    },
+    {
+      "name": "qoder_bailian_skill_invocation",
+      "path": "docs/evidence/qoder-interview-coach/qoder-bailian-skill-invocation-v1.1.30.txt"
+    },
+    {
+      "name": "qoder_bailian_skill_invocation_status",
+      "path": "docs/evidence/qoder-interview-coach/qoder-bailian-skill-invocation-v1.1.30.status.json"
+    },
+    {
+      "name": "qoder_bailian_stability",
+      "path": "docs/evidence/qoder-interview-coach/qoder-bailian-stability-v1.1.30.json"
+    },
+    {
+      "name": "submission_guide",
+      "path": "docs/interview-coach-submission-guide.md"
+    },
+    {
+      "name": "article_upload_order",
+      "path": "docs/interview-coach-article-upload-order.md"
+    },
+    {
+      "name": "social_copy",
+      "path": "docs/interview-coach-social-copy.md"
+    },
+    {
+      "name": "article_draft",
+      "path": "docs/interview-coach-article-draft.md"
+    },
+    {
+      "name": "submission_copy",
+      "path": "docs/interview-coach-submission-copy.md"
+    }
+  ]
+}

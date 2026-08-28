@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/vevc/transcript.schema.json",
+  "title": "Voice Evidence Transcript Segment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "segment_id",
+    "start_ms",
+    "end_ms",
+    "speaker_id",
+    "text",
+    "language",
+    "confidence",
+    "source"
+  ],
+  "properties": {
+    "schema_version": {"const": "0.1.0"},
+    "segment_id": {"type": "string", "pattern": "^S[0-9]{4,}$"},
+    "start_ms": {"type": "integer", "minimum": 0},
+    "end_ms": {"type": "integer", "minimum": 1},
+    "speaker_id": {"type": "string", "minLength": 1},
+    "text": {"type": "string", "minLength": 1},
+    "language": {"type": "string", "minLength": 2},
+    "confidence": {
+      "anyOf": [
+        {"type": "number", "minimum": 0, "maximum": 1},
+        {"type": "null"}
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "audio_sha256"],
+      "properties": {
+        "type": {"enum": ["mock", "asr", "manual"]},
+        "audio_sha256": {
+          "anyOf": [
+            {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+            {"type": "null"}
+          ]
+        },
+        "model": {"type": ["string", "null"]},
+        "revision": {"type": ["string", "null"]},
+        "device": {"type": ["string", "null"]}
+      }
+    }
+  }
+}
+
