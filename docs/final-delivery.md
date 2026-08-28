@@ -6,9 +6,9 @@
 - Published ModelScope Skill:
   `https://www.modelscope.cn/skills/ayuannn/interview-coach-agent`
 - Skill archive: `dist/interview-coach-agent-0.1.0.zip`
-- Skill archive size: 2,217,507 bytes
+- Skill archive size: 2,217,522 bytes
 - Skill archive SHA-256:
-  `7188cb1458c2dc82a60d77a37afd4d596b50b062b6dee982c0b8a4426b403962`
+  `42a6be653667f03621155ecd08f9813e6bccc7b66d8be851f583d6e14de6b1b5`
 - Skill archive checksum:
   `dist/interview-coach-agent-0.1.0.zip.sha256`
 - Submission bundle: `dist/interview-coach-agent-submission-bundle.zip`

@@ -60,9 +60,9 @@ python3 scripts/build_interview_submission_bundle.py
 - AIPC local Skill 合同：`run.ps1`、`install-env.ps1`、`client.py/server.py`
   named pipe、模型 `.partial` 原子准备、`--continue` 和 `tests/test.ps1`
   均已纳入发布审计。
-- 发布包：`dist/interview-coach-agent-0.1.0.zip`，2,217,507 bytes、63 个文件，
+- 发布包：`dist/interview-coach-agent-0.1.0.zip`，2,217,522 bytes、63 个文件，
   低于 5 MB，release audit passed；SHA-256 为
-  `7188cb1458c2dc82a60d77a37afd4d596b50b062b6dee982c0b8a4426b403962`。
+  `42a6be653667f03621155ecd08f9813e6bccc7b66d8be851f583d6e14de6b1b5`。
 - 演示视频：`output/interview-coach-redesign/interview-coach-demo-v2.mp4`，
   38.60 秒，1920x1080，MCY 音色旁白，展示 4.2 → 6.7、真实报告下载和报告内容；
   H.264 + AAC，无内嵌字幕，视频 QA passed。

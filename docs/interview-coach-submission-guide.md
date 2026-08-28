@@ -27,9 +27,9 @@
 当前 Skill ZIP：
 
 ```text
-Size:   2,217,507 bytes
+Size:   2,217,522 bytes
 Files:  63
-SHA256: 7188cb1458c2dc82a60d77a37afd4d596b50b062b6dee982c0b8a4426b403962
+SHA256: 42a6be653667f03621155ecd08f9813e6bccc7b66d8be851f583d6e14de6b1b5
 ```
 
 ## 2. 发布顺序
