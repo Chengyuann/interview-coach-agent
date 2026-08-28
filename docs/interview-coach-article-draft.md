@@ -152,8 +152,8 @@ POST /v1/interview/transcribe
 ```
 
 浏览器、CLI、Qoder 和 TRAE 最终使用同一套反馈逻辑，返回格式由 JSON Schema
-约束。这样可以避免网页显示一种结果、其他工具返回另一种结果，也便于将固定输入纳入
-自动测试。
+约束。这样可以避免网页显示一种结果、其他工具返回另一种结果，也便于在不同入口之间
+复用相同的题目、反馈和报告。
 
 OpenVINO GenAI Whisper 不是独立演示脚本，而是已经接入 `transcribe` 命令和
 localhost 服务的实际 provider。由于当前中文准确率尚未通过默认模型替换门槛，
@@ -200,7 +200,7 @@ ASR_REVIEW_REQUIRED  转写质量不足，需要人工核对
 ```
 
 固定的问题类别比随意生成的一段文字更适合工程使用。前端可以稳定显示问题类型，工具也可以据此
-决定下一步追问，自动测试也不必从一段自然语言中猜测系统是否识别出了同一个问题。
+决定下一步追问，用户也能清楚看到两次回答解决的是不是同一类问题。
 
 ### 3.2 从问题定位到追问
 
@@ -372,13 +372,8 @@ python3 scripts/interview.py transcribe \
 
 该开发机是 Apple Silicon，因此这组数据只用于确认 provider 能加载、转写并接入
 产品接口，不作为 Intel 性能结果。转写中出现了“手单转化律”等错误，导致
-`STAR_INCOMPLETE` 和 `LOW_ROLE_FIT`。机器可读证据据此记录：
-
-```text
-functional_gate: passed
-accuracy_gate: failed
-production_default_eligible: false
-```
+`STAR_INCOMPLETE` 和 `LOW_ROLE_FIT`。这说明功能接入已经完成，但当前准确率还不适合
+替换默认中文模型。
 
 ### 4.4 Intel CPU 实测
 
@@ -430,15 +425,14 @@ python3 scripts/interview.py report \
 Agent 只能调用练习工具，不能把结果用于自动筛选候选人，也不能凭空补充候选人的
 个人经历。
 
-报告是当前工作流的最终交付物。候选人可以保存自己的练习记录，导师可以根据报告
+报告是当前工作流的最终产物。候选人可以保存自己的练习记录，导师可以根据报告
 继续追问，企业培训人员也可以在不收集原始录音的前提下查看结构化复盘。报告默认
 只在本地生成，不建立服务器侧候选人档案。
 
 ### 5.2 Qoder 调用
 
-Qoder CLI 1.1.30 使用用户配置的阿里云百炼模型作为 Agent 规划模型，实际加载
-`interview-coach-agent` Skill，并依次调用 `roles`、`coach` 与 `report`。凭据
-保存在仓库外部，仅在启动子进程时注入；Skill ZIP 和提交包中不包含 API Key。
+Qoder CLI 1.1.30 使用阿里云百炼模型作为 Agent 规划模型，实际加载
+`interview-coach-agent` Skill，并依次调用 `roles`、`coach` 与 `report`。
 
 一次调用返回：
 
@@ -455,25 +449,19 @@ Qoder CLI 1.1.30 使用用户配置的阿里云百炼模型作为 Agent 规划�
 为排除历史上下文影响，项目又进行了 3 次全新启动，并使用
 `--no-session-persistence` 参数。
 三次均完成 Skill 加载和三条命令调用，并复现 4.2、6.7 和 +2.5 的结果，成功率
-为 3/3。每轮生成一份 3,193 bytes 的 Markdown 报告，三份报告 SHA-256 均为
-`47062de9c07f2f37e8d3dec1158527f9e509522a66693be5133f6a727b7eee64`。
+为 3/3，每轮都生成了结构一致的 Markdown 练习报告。
 
 ### 5.3 TRAE 调用
 
-TRAE CLI 0.120.47 使用三个独立 session ID 执行同一任务。测试明确禁用
-Edit、Write 和 Replace，只允许读取 Skill、运行三条 Bash 命令，并在
-`build/agent-report-evidence` 写入报告。三次会话均返回 4.2、6.7、+2.5 和
-`improved`，并生成对应报告。
+TRAE CLI 0.120.47 使用三个独立会话执行同一任务。三次会话均完成
+`roles → coach → report`，返回 4.2、6.7、+2.5 和 `improved`，并生成对应报告。
 
-| 工具 | 全新启动次数 | 成功 | Bash / 轮 | 报告产物 | 源码变化 |
-|---|---:|---:|---:|---:|---:|
-| Qoder CLI 1.1.30 | 3 | 3 | 3 | 3 | 0 |
-| TRAE CLI 0.120.47 | 3 | 3 | 3 | 3 | 0 |
+| 工具 | 全新启动次数 | 完成流程 | 结果 |
+|---|---:|---:|---|
+| Qoder CLI 1.1.30 | 3 | 3 / 3 | 4.2 → 6.7 |
+| TRAE CLI 0.120.47 | 3 | 3 / 3 | 4.2 → 6.7 |
 
-两个工具生成的六份报告内容完全一致，统一 SHA-256 为
-`47062de9c07f2f37e8d3dec1158527f9e509522a66693be5133f6a727b7eee64`。
-外层验证脚本还分别计算了每轮执行前后的源码树指纹，六轮全部保持一致。机器可读
-摘要位于 `docs/evidence/agent-report-evidence/summary.json`。
+两个工具都能稳定发现 Skill、调用同一套本地能力并生成练习报告。
 
 ![四岗位切换与统一工作台](submission-assets/article/06-role-switch.png)
 
@@ -541,9 +529,9 @@ Edit、Write 和 Replace，只允许读取 Skill、运行三条 Bash 命令，�
 三组均有提升，平均提升 1.467。该实验属于语言模型角色模拟，用于扩大回答风格覆盖，
 不是真人用户研究，也不用于推断真实候选人的学习效果。
 
-### 6.4 语音、工具调用和发布验证
+### 6.4 端到端验证
 
-除了回答质量，项目还分别验证了语音、服务、Qoder/TRAE 调用和发布包：
+除了回答质量，项目还分别验证了语音、服务和 Qoder/TRAE 调用：
 
 | 验证项 | 结果 |
 |---|---|
@@ -553,25 +541,17 @@ Edit、Write 和 Replace，只允许读取 Skill、运行三条 Bash 命令，�
 | VoxCPM2 生成语音 | 二答较首答提升 3.3 |
 | Qoder 全新启动实测 | 3 / 3 完成 `roles → coach → report` |
 | TRAE 全新启动实测 | 3 / 3 完成 `roles → coach → report` |
-| Agent 报告产物 | 6 / 6 生成，统一 SHA，源码树零变化 |
 | Markdown 练习报告 | CLI、localhost 与浏览器下载通过 |
-| 自动测试 | 194 项通过 |
-| Skill 发布审计 | 通过 |
 
-发布审计检查根目录 `SKILL.md` 数量、ZIP 体积、许可证、第三方许可证、测试文件、
-模型来源、密钥和虚拟环境排除规则。当前 Skill ZIP 约 2.1 MB，不包含模型权重
-和 API Key。
-
-### 6.5 界面与演示验证
+### 6.5 界面与演示
 
 工作台分别在 1600×900 桌面视口和 390×844 移动视口进行布局检查。桌面和移动端
 均无横向溢出，移动端保留岗位、问题、录音和回答入口。
 
 ![移动端练习界面](submission-assets/article/07-mobile-start.png)
 
-演示视频时长 38.60 秒，分辨率为 1920×1080，使用 H.264 视频和 48 kHz AAC
-单声道 MCY 旁白。视频展示正式样例从 4.2 提升到 6.7，并点击真实下载按钮展示
-Markdown 报告。完整解码通过，没有黑帧和超过两秒的静音，也没有录入桌面其他窗口。
+演示视频时长 38.60 秒，展示正式样例从 4.2 提升到 6.7，并点击下载按钮打开
+Markdown 练习报告。
 
 ![演示视频关键帧](submission-assets/article/interview-coach-demo-contact-sheet.jpg)
 
@@ -579,13 +559,11 @@ Markdown 报告。完整解码通过，没有黑帧和超过两秒的静音，�
 
 ### 7.1 公开入口
 
-评审可以先从两个公开入口检查作品：
+项目的源码、Skill 和演示视频可以从以下入口查看：
 
 - [ModelScope Skill 页面](https://www.modelscope.cn/skills/ayuannn/interview-coach-agent)
 - [公开源码与复现材料](https://github.com/Chengyuann/interview-coach-agent)
 - [38.6 秒演示视频](https://github.com/Chengyuann/interview-coach-agent/blob/main/demo/interview-coach-demo-v2.mp4)
-
-本地验收命令不依赖云端模型账号。
 
 ### 7.2 文本模式
 
@@ -605,18 +583,9 @@ python3 -m venv .venv-minimal
   --overwrite
 ```
 
-评委也可以直接运行一条离线验收命令：
-
-```bash
-python3 scripts/verify_interview_submission.py
-```
-
-该命令在临时目录中验证岗位列表、4.2 → 6.7 两轮评分、Markdown 报告、
-localhost 报告接口、AIPC local Skill 入口、Skill ZIP 和发布审计，不需要云端账号。
-
 ### 7.3 AIPC local Skill 入口
 
-发布包补齐 `openvino-dev-samples/local-ai-skill-authoring` 的可复用结构：
+Windows 端采用短生命周期客户端和本地常驻服务的结构：
 
 ```powershell
 scripts\run.ps1 roles
@@ -633,8 +602,8 @@ named pipe 调用常驻 `server.py`，服务端暴露 `status`、`request` 和 `
 后再原子落盘；首次准备超过工具单次调用时限时，客户端保存 pending request，并提示
 运行 `scripts\run.ps1 --continue` 继续。
 
-项目保留原有 `scripts/interview.py` 和浏览器 localhost 路径用于跨平台开发、
-文章演示和 Qoder/TRAE 证据，但正式 Windows Skill 入口是 `scripts\run.ps1`。
+项目同时保留 `scripts/interview.py` 和浏览器 localhost 路径，用于跨平台开发
+和日常练习；Windows Skill 入口是 `scripts\run.ps1`。
 
 ### 7.4 本地语音工作台
 
@@ -662,22 +631,6 @@ OpenVINO 设备并生成结果包。
 项目曾遇到 Anaconda 自带旧版 `MSVCP140.dll` 导致 OpenVINO GenAI 原生崩溃。
 当前 Windows 脚本会拒绝 Anaconda/Miniconda Python，改用标准 CPython 创建独立
 虚拟环境，避免动态库冲突。
-
-### 7.6 打包与发布审计
-
-以下命令面向维护者和评审复现，用于确认 Skill 包结构、测试和发布审计结果：
-
-```bash
-python3 -m pytest
-python3 scripts/validate_package.py .
-python3 scripts/build_package.py \
-  --output dist/interview-coach-agent-0.1.0.zip
-python3 scripts/release_audit.py \
-  --archive dist/interview-coach-agent-0.1.0.zip
-```
-
-构建过程同时生成 SHA-256 sidecar，便于下载后校验文件完整性。模型权重不随 ZIP
-分发。安装脚本负责下载模型，发布包只保存模型 ID、版本来源、许可说明和运行代码。
 
 ## 八、数据安全与 Hybrid AI
 
@@ -716,8 +669,8 @@ OpenVINO 运行时和所用 Whisper 模型路径有独立许可证记录。Moons
 使用 Moonshine AI Community License，包含单独的商业条件和署名要求。企业部署
 前需要再次核对适用范围。
 
-因此，项目将“能够在本地运行”和“可以不受条件地商用”分开说明。Skill 包不包含
-模型权重，部署者可以根据许可和准确率要求替换 ASR provider。
+因此，项目将“能够在本地运行”和“可以不受条件地商用”分开说明。部署时模型按需
+下载，使用者也可以根据许可和准确率要求替换 ASR provider。
 
 ## 九、局限与后续工作
 
@@ -745,13 +698,12 @@ OpenVINO 运行时和所用 Whisper 模型路径有独立许可证记录。Moons
 第一次回答，系统指出结构、数字、岗位动作，以及有没有夸大或没说清本人贡献的问题，再通过追问引导候选人
 补充自己的经历，最后比较第二次回答的变化。
 
-系统用结构化输出和自动测试守住三条原则：缺少结果时保留待补充项，转写质量不足
-时要求复核，OpenVINO 路径准确率不够时不替换默认模型。
+系统用结构化输出守住三条原则：缺少结果时保留待补充项，转写质量不足时要求复核，
+OpenVINO 路径准确率不够时不替换默认模型。
 
 当前版本完成了 Moonshine 本地语音流程、OpenVINO GenAI Whisper 可选 provider、
 Intel CPU 实测、Qoder 与 TRAE 多次全新启动调用、8 组跨岗位预设测试、localhost
-稳定性测试和发布包审计。它可以作为个人面试练习工具，也可以嵌入企业培训和求职
-辅导流程，但其定位始终是帮助用户整理和表达真实经历，而不是生成一段看似完美的
-虚构答案。
+稳定性测试。它可以作为个人面试练习工具，也可以嵌入企业培训和求职辅导流程，但其
+定位始终是帮助用户整理和表达真实经历，而不是生成一段看似完美的虚构答案。
 
 <!-- publication asset: interview-coach-demo-v2.mp4 -->
