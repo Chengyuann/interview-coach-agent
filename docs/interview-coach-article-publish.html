@@ -1,7 +1,7 @@
 <h2>摘要</h2>
 <p>很多候选人在面试中并不缺少项目经历，真正困难的是如何在几分钟内把背景、目标、个人行动和结果讲清楚。传统人工复盘依赖面试官或导师，反馈周期较长；通用大模型虽然可以快速润色回答，却可能补入候选人没有提供的项目数据、团队规模和个人职责。对于面试训练而言，一段更流畅但不真实的答案并没有实际价值。</p>
 <p>本文实现了一套可在本地运行的语音面试陪练系统。候选人可以选择产品经理、算法工程师、销售或运营岗位，通过文本或麦克风完成第一次回答。系统从 STAR 结构、具体程度、数据量化、岗位匹配、表达清晰和真实可信六个方面分析回答，指出最需要补充的信息，并给出针对性追问。候选人完成第二次回答后，系统展示总分和各维度的变化，使“先回答、看反馈、补充、再回答、看变化”成为一套完整练习过程。</p>
-<p>语音识别和评分服务运行在 localhost。当前中文默认路径使用轻量化 Moonshine 模型，OpenVINO GenAI Whisper 作为可选 provider 接入同一套 CLI 和服务接口。系统同时封装为标准 Agent Skill，并在 Qoder CLI 1.1.30 和 TRAE CLI 0.120.47 中完成多次全新启动实测。8 组预设面试题测试全部通过，第二次回答平均提升 2.76 分；localhost 文本评分接口连续 40 次调用无错误，本地语音回归也通过了预设质量门。</p>
+<p>语音识别和评分服务运行在 localhost。当前中文默认路径使用轻量化 Moonshine 模型，OpenVINO GenAI Whisper 作为可选 provider 接入同一套 CLI 和服务接口。系统同时封装为标准 Agent Skill，浏览器、CLI、Qoder 和 TRAE 调用的是同一套本地反馈逻辑。8 组跨岗位案例中，第二次回答平均提升 2.76 分；localhost 文本评分接口连续 40 次调用无错误，Intel CPU 上的 OpenVINO Whisper 也完成了独立部署测量。</p>
 <p><strong>关键词：</strong> 面试陪练；Agent Skill；本地语音识别；OpenVINO；AI PC；Hybrid AI</p>
 <h2>一、项目背景</h2>
 <h3>1.1 回答里还没讲清楚的地方</h3>
@@ -99,7 +99,7 @@ VAGUE_LANGUAGE   出现“一些、比较、明显”等模糊词</code></pre>
 任务：负责分析数据并推动页面调整。
 行动：查看数据，与研发沟通，完成页面优化。
 结果：[补充一个可核实的指标和结果]</code></pre>
-<p>系统不会自动填写雇主名称、团队人数、项目金额、个人职责、证书、转化数据或收入结果。这条规则同时存在于评分逻辑、Skill 说明和固定测试集中。8 组预设面试题测试都会检查参考框架是否基于首答、缺失结果是否显式保留，以及是否出现预设的虚构行动模板。</p>
+<p>系统不会自动填写雇主名称、团队人数、项目金额、个人职责、证书、转化数据或收入结果。这条规则同时存在于评分逻辑、Skill 说明和预设案例中。系统会检查参考框架是否基于首答、缺失结果是否显式保留，以及是否出现预设的虚构行动模板。</p>
 <h3>3.4 第二次回答与差值</h3>
 <p>候选人根据追问补充事实后，可以提交第二次回答：</p>
 <blockquote><p>当时新用户注册到首单的转化率只有 18%，目标是在 4 周内提升首单转化。我负责拆解漏斗数据，发现用户在优惠说明页流失最高，于是推动研发上线更清晰的价格说明和默认优惠选择，并用 A/B 实验验证。结果实验组首单转化率从 18%提升到 26%，页面投诉量下降 15%。</p></blockquote>
@@ -144,9 +144,7 @@ risk_control  +1</code></pre>
   --openvino-model-dir models/openvino/whisper-tiny-int8-ov \
   --openvino-device CPU</code></pre>
 <p>模型准备脚本优先支持从 ModelScope 下载，减少部分网络环境对 Hugging Face 的依赖。OpenVINO provider 与 Moonshine 使用同一份转写输出格式，因此上层评分器、浏览器和 Agent Skill 不需要感知后端差异。</p>
-<p>在开发机上，17.60 秒测试音频完成了 CLI 和 localhost 两条功能路径：</p>
-<table><thead><tr><th>调用路径</th><th>推理时间</th><th>RTF</th></tr></thead><tbody><tr><td>CLI</td><td>0.189693 秒</td><td>0.010778</td></tr><tr><td>localhost 服务</td><td>0.268175 秒</td><td>0.015237</td></tr></tbody></table>
-<p>该开发机是 Apple Silicon，因此这组数据只用于确认 provider 能加载、转写并接入产品接口，不作为 Intel 性能结果。转写中出现了“手单转化律”等错误，导致 <code>STAR_INCOMPLETE</code> 和 <code>LOW_ROLE_FIT</code>。这说明功能接入已经完成，但当前准确率还不适合替换默认中文模型。</p>
+<p>这一路径已经能从 CLI 和 localhost 服务进入同一套反馈流程。当前实验中，OpenVINO Whisper 能够完成模型加载、转写和结果返回，但中文口语中仍会出现“首单转化率”被识别成近似词的情况。因此它目前作为可选 provider 保留，不替换默认中文路径。</p>
 <h3>4.4 Intel CPU 实测</h3>
 <p>项目随后在一台 Intel Core i7-12650H、Windows 11 笔记本上运行 OpenVINO 2026.3 和 Whisper Base INT8。27.055 秒音频的总推理时间为 1.409 秒，RTF 为 0.0521。</p>
 <p><img src="https://resources.modelscope.cn/race/image/8d541a79-c83a-4348-a90e-838d72fb1c06.jpeg" alt="Intel CPU 上的 OpenVINO Whisper 结果"></p>
@@ -187,24 +185,17 @@ python3 scripts/interview.py report \
 <p><img src="https://resources.modelscope.cn/race/image/e1ca7b70-b65e-460d-89cd-ff37e0f7fc2d.jpeg" alt="四岗位切换与统一工作台"></p>
 <p>这组验证关注的是 Skill 能否被 Agent 稳定发现和调用，而不是比较不同 Agent 的语言能力。Qoder 和 TRAE 最终使用同一份本地工具输出，因此评分结果保持一致。</p>
 <h2>六、实验设计与结果</h2>
-<h3>6.1 多岗位预设题测试</h3>
-<p>预设测试覆盖四个岗位、8 个不同问题。每组测试都包含第一次回答和补充事实后的第二次回答。表中的“指标提升”使用预设测试里更短的第一次回答，因此首答为 3.2；前文网页和 Agent 演示使用的是信息稍多的首答样例，分数为 4.2。两者问题相同，但输入文本不同。</p>
+<h3>6.1 多岗位预设案例</h3>
+<p>预设案例覆盖四个岗位、8 个不同问题。每组案例都包含第一次回答和补充事实后的第二次回答。表中的“指标提升”使用更短的第一次回答，因此首答为 3.2；前文网页和 Agent 演示使用的是信息稍多的首答样例，分数为 4.2。两者问题相同，但输入文本不同。</p>
 <table><thead><tr><th>场景</th><th>岗位</th><th>首答</th><th>二答</th><th>提升</th></tr></thead><tbody><tr><td>指标提升</td><td>产品经理</td><td>3.2</td><td>6.7</td><td>+3.5</td></tr><tr><td>研发分歧推进</td><td>产品经理</td><td>4.0</td><td>6.3</td><td>+2.3</td></tr><tr><td>效果与延迟权衡</td><td>算法工程师</td><td>4.0</td><td>6.7</td><td>+2.7</td></tr><tr><td>模型效果下降排查</td><td>算法工程师</td><td>3.7</td><td>6.3</td><td>+2.6</td></tr><tr><td>关键客户异议</td><td>销售</td><td>3.3</td><td>6.5</td><td>+3.2</td></tr><tr><td>销售漏斗管理</td><td>销售</td><td>4.2</td><td>6.5</td><td>+2.3</td></tr><tr><td>增长活动</td><td>运营</td><td>3.8</td><td>6.7</td><td>+2.9</td></tr><tr><td>线上运营事故</td><td>运营</td><td>3.7</td><td>6.3</td><td>+2.6</td></tr></tbody></table>
-<p>8 组测试全部通过，平均提升 2.76 分。每组测试同时检查：</p>
-<ul><li>第二次回答达到预设的最低提升；</li><li>六个方面没有倒退；</li><li>第一次回答的参考框架只使用原文事实；</li><li>缺失结果使用显式占位符；</li><li>没有出现预设的虚构行动模板。</li></ul>
+<p>8 组案例的第二次回答均高于第一次回答，平均提升 2.76 分。除了总分变化，系统还关注：</p>
+<ul><li>六个方面没有倒退；</li><li>第一次回答的参考框架是否只使用原文事实；</li><li>缺失结果是否使用显式占位符；</li><li>是否出现预设的虚构行动模板。</li></ul>
 <p>评测不只替换岗位名称。算法案例需要说明模型效果和在线延迟的权衡，销售案例涉及客户异议和分阶段成交，运营案例包括活动增长和线上事故，产品案例则覆盖指标提升与跨团队推进。</p>
 <h3>6.2 localhost 服务稳定性</h3>
-<p>项目对 <code>/v1/interview/coach</code> 执行五轮连续调用，每轮运行全部 8 组预设测试。</p>
+<p>项目对 <code>/v1/interview/coach</code> 执行五轮连续调用，每轮运行全部 8 组预设案例。</p>
 <table><thead><tr><th>指标</th><th>结果</th></tr></thead><tbody><tr><td>请求数</td><td>40</td></tr><tr><td>通过数</td><td>40</td></tr><tr><td>成功率</td><td>100%</td></tr><tr><td>错误数</td><td>0</td></tr><tr><td>中位延迟</td><td>0.001739 秒</td></tr></tbody></table>
 <p>这里的延迟只统计规则化文本反馈，不包含 ASR。把文本反馈和语音转写分开记录，可以避免用一个很小的数掩盖模型加载和音频推理时间。</p>
-<h3>6.3 不同回答风格的模拟实验</h3>
-<p>为了观察系统面对较长、较自然回答时的表现，项目使用语言模型模拟产品经理、算法工程师和销售候选人。模拟候选人先生成第一次回答，读取系统实际返回的问题和追问，再生成第二次回答。</p>
-<table><thead><tr><th>模拟角色</th><th>首答</th><th>二答</th><th>提升</th></tr></thead><tbody><tr><td>产品经理</td><td>4.5</td><td>6.3</td><td>+1.8</td></tr><tr><td>算法工程师</td><td>5.2</td><td>6.3</td><td>+1.1</td></tr><tr><td>销售</td><td>4.7</td><td>6.2</td><td>+1.5</td></tr></tbody></table>
-<p>三组均有提升，平均提升 1.467。该实验属于语言模型角色模拟，用于扩大回答风格覆盖，不是真人用户研究，也不用于推断真实候选人的学习效果。</p>
-<h3>6.4 端到端验证</h3>
-<p>除了回答质量，项目还分别验证了语音、服务和 Qoder/TRAE 调用：</p>
-<table><thead><tr><th>验证项</th><th>结果</th></tr></thead><tbody><tr><td>预设面试题测试</td><td>8 / 8 通过</td></tr><tr><td>localhost 文本评分</td><td>40 / 40 通过</td></tr><tr><td>Moonshine 回归音频</td><td>单条合成回归音频覆盖率 100%，RTF 0.039854</td></tr><tr><td>VoxCPM2 生成语音</td><td>二答较首答提升 3.3</td></tr><tr><td>Qoder 全新启动实测</td><td>3 / 3 完成 <code>roles → coach → report</code></td></tr><tr><td>TRAE 全新启动实测</td><td>3 / 3 完成 <code>roles → coach → report</code></td></tr><tr><td>Markdown 练习报告</td><td>CLI、localhost 与浏览器下载通过</td></tr></tbody></table>
-<h3>6.5 界面与演示</h3>
+<h3>6.3 界面与演示</h3>
 <p>工作台分别在 1600×900 桌面视口和 390×844 移动视口进行布局检查。桌面和移动端均无横向溢出，移动端保留岗位、问题、录音和回答入口。</p>
 <p><img src="https://resources.modelscope.cn/race/image/753ee4ad-ab60-4c2e-8406-c98e6f269240.jpeg" alt="移动端练习界面"></p>
 <p>演示视频时长 38.60 秒，展示正式样例从 4.2 提升到 6.7，并点击下载按钮打开 Markdown 练习报告。</p>
@@ -268,4 +259,4 @@ scripts\run.ps1 report `
 <h2>十、总结</h2>
 <p>本项目实现了一套运行在本地 AI PC 上的语音面试陪练 Agent Skill。候选人先完成第一次回答，系统指出结构、数字、岗位动作，以及有没有夸大或没说清本人贡献的问题，再通过追问引导候选人补充自己的经历，最后比较第二次回答的变化。</p>
 <p>系统用结构化输出守住三条原则：缺少结果时保留待补充项，转写质量不足时要求复核，OpenVINO 路径准确率不够时不替换默认模型。</p>
-<p>当前版本完成了 Moonshine 本地语音流程、OpenVINO GenAI Whisper 可选 provider、Intel CPU 实测、Qoder 与 TRAE 多次全新启动调用、8 组跨岗位预设测试、localhost 稳定性测试。它可以作为个人面试练习工具，也可以嵌入企业培训和求职辅导流程，但其定位始终是帮助用户整理和表达真实经历，而不是生成一段看似完美的虚构答案。</p>
+<p>当前版本完成了 Moonshine 本地语音流程、OpenVINO GenAI Whisper 可选 provider、Intel CPU 实测、Qoder 与 TRAE 多次全新启动调用、8 组跨岗位预设案例和 localhost 稳定性验证。它可以作为个人面试练习工具，也可以嵌入企业培训和求职辅导流程，但其定位始终是帮助用户整理和表达真实经历，而不是生成一段看似完美的虚构答案。</p>
